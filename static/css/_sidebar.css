@@ -1,0 +1,90 @@
+.sidebar {
+    float: left;
+    width: 300px;
+    height: 100%;
+    background-color: #17181A;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    .options {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+        .option-activity {
+            display: flex;
+            height: 48px;
+            background-color: #46474e;
+            border-radius: 8px;
+            padding: 12px;
+            .prefix {
+                display: flex;
+                gap: 8px;
+                margin: auto 0;
+                color: #c2c2c2;
+                font-size: 20px;
+            }
+        }
+        .option {
+            display: flex;
+            height: 48px;
+            background-color: #27282C;
+            border-radius: 8px;
+            padding: 12px;
+            cursor: pointer;
+            transition: background-color 1s;
+            color: #c2c2c2;
+            font-size: 20px;
+            .prefix {
+                display: flex;
+                gap: 8px;
+                margin: auto 0;
+            }
+        }
+        .option:hover {
+            transition-duration: inherit;
+            background-color: #404246;
+        }
+    }
+    .filler {
+        flex: 1;
+    }
+    .separator {
+        width: auto;
+        height: 2px;
+        margin: 0px 16px;
+        background-color: #484a52;
+    }
+    .setting {
+        margin: 16px;
+        display: flex;
+        gap: 16px;
+        border-radius: 8px;
+        background-color: #3a3b3f;
+        cursor: pointer;
+    }
+    .tag {
+        width: 100%;
+        height: 48px;
+        display: flex;
+        align-items: center;     /* 垂直居中 */
+    }
+    .avatar {
+        width: 24px;
+        height: 24px;
+        padding-left: 16px;
+    }
+    .name {
+        color: #c2c2c2;
+        font-size: 16px;
+        font-weight: 700;
+        padding-left: 8px;
+    }
+    .icon {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        justify-content: center; /* 水平居中 */
+        align-items: center;     /* 垂直居中 */
+    }
+}

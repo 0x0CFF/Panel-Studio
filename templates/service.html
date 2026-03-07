@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='image/favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/service.css') }}">
+    <script type="text/javascript" src="/static/js/framework/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/framework/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/static/js/common/initCookie.js"></script>
+    <title>Panel-Studio</title>
+</head>
+
+<body>
+    {% include '_sidebar.html' %}
+
+    <div class="container">
+        <div class="categories">
+            <!-- 获取所有不同的 group -->
+            {% set groups = [] %}
+            {% for item in serviceData %}
+                {% set item_tags = item.tags|tojson|safe %}
+                {% if cookie_tag in item_tags and item.group not in groups %}
+                    {% set _ = groups.append(item.group)%}
+                {% endif %}
+            {% endfor %}
+            <!-- 按组显示数据 -->
+            {% for group in groups|sort %}
+                <h2 class="category-title">{{ group }}</h2>
+                <div class="cardgroup">
+                    {% for item in serviceData %}
+                        {% set item_tags = item.tags|tojson|safe %}
+                        {% if cookie_tag in item_tags and item.group == group%}
+                            <div class="card{% for tag in item.tags %} {{ tag }}{% endfor %}" onclick="window.open('{{ item.url }}', '_self'); return false;">
+                                <img alt="" class="icon" src="static/image/{{ item.icon }}" />
+                                <h3 class="title">{{ item.name }}</h3>
+                                <p class="subtitle">{{ item.description }}</p>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    <div class="card-empty"></div>
+                    <div class="card-empty"></div>
+                    <div class="card-empty"></div>
+                    <div class="card-empty"></div>
+                    <div class="card-empty"></div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% include '_tagSelector.html' %}
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+.fullscreen-overlay {
+    position: fixed;                            /* 固定定位，相对于视口 */
+    top: 0;
+    left: 0;
+    width: 100vw;                               /* 占满视口宽度 */
+    height: 100vh;                              /* 占满视口高度 */
+    background-color: rgba(0, 0, 0, 0.6);     /* 半透明黑色，可自行调整透明度/颜色 */
+    -webkit-backdrop-filter: blur(8px);         /* 可选：背景模糊，增加遮罩质感，Safari 支持 */
+    backdrop-filter: blur(8px);                 /* 可选：背景模糊，增加遮罩质感 */
+    display: flex;                              /* 使用 flex 让内部内容居中 */
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;                              /* 确保遮罩位于所有内容之上 */
+
+    transition: opacity 0.25s ease;             /* 可选：添加过渡效果，让遮罩出现或消失更平滑（如果动态控制） */
+
+    /* opacity: 1;
+    visibility: visible; */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: auto;                       /* 遮罩显示时捕获点击事件，阻止与下层交互（这正是遮罩的作用） */
+    /* 为了演示方便，默认让遮罩显示；如果希望默认隐藏，可以加上 opacity: 0; visibility: hidden; 并通过 JavaScript 来控制显示/隐藏 */
+}
+
+/* 遮罩内部提示卡片 */
+.overlay-message {
+    background: #17181a;
+    border: 1px solid #2b2a33;
+    width: 1024px;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    animation: fadeInUp 0.3s ease-out;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 24px;
+}
+
+/* 简单的动画 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tag-card {
+    display: flex;
+    gap: 16px;
+    border-radius: 8px;
+    background-color: #27282C;
+    border: 1px solid #27282C;
+    transition: background-color 0.8s;
+    cursor: pointer;
+}
+.tag-card-activity {
+    display: flex;
+    gap: 16px;
+    border-radius: 8px;
+    background-color: #404246;
+    border: 1px solid #675ea3;
+    transition: background-color 0.8s;
+    cursor: default;
+}
+.tag-card:hover {
+    transition-duration: inherit;
+    background-color: #404246;
+}
+.tag {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    align-items: center;     /* 垂直居中 */
+}
+.avatar {
+    width: 24px;
+    height: 24px;
+    padding-left: 16px;
+}
+.name {
+    color: #c2c2c2;
+    font-size: 16px;
+    font-weight: 600;
+    padding-left: 8px;
+}
+.icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center;     /* 垂直居中 */
+}

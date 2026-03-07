@@ -1,0 +1,88 @@
+/* static/css/style.css */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+
+body {
+    background-color: #27282c;
+    font-family: Arial, sans-serif;
+    .container {
+        margin-left: 300px;
+        background-color: #27282C;
+        padding: 36px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        .categories {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            /* background-color: rgb(105, 172, 198); */
+            .category-title {
+                color: #ffffff;
+                text-align: left;
+            }
+            .cardgroup {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                grid-gap: 20px;
+                .card {
+                    display: grid;
+                    grid-gap: 12px;
+                    grid-template-columns: 60px 1fr;
+                    grid-template-areas:
+                        "icon title"
+                        "icon subtitle";
+                    cursor: pointer;
+                    background-color: #3a3b3f;
+                    border-radius: 8px;
+                    padding: 20px;
+                    transition: background-color 1s;
+                    .icon {
+                        grid-area: icon;
+                        height: 60px;
+                        width: 60px;
+                        border-radius: 8px;
+                    }
+                    .title {
+                        grid-area: title;
+                        color: #ffffff;
+                    }
+                    .subtitle {
+                        grid-area: subtitle;
+                        color: #c2c2c2;
+                        font-size: 15px;
+                    }
+                }
+                .card:hover {
+                    transition-duration: inherit;
+                    background-color: #404146;
+                }
+                .card-empty {
+                    background-image: linear-gradient(to bottom, #2E2F34, rgba(0, 0, 0, 0));
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+}
+
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}

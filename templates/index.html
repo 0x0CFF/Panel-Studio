@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='image/favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/searchbar.css') }}">
+    <script type="text/javascript" src="/static/js/framework/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/framework/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/static/js/common/initCookie.js"></script>
+    <title>Panel-Studio</title>
+</head>
+<body>
+    {% include '_sidebar.html' %}
+
+    <div class="container">
+        <div class="categories">
+            <div class="engine">
+                <img alt="" class="logo" id="Baidu" src="/static/svg/Baidu.svg" onclick="switchEngine()">
+                <img alt="" class="logo" id="Bing" src="/static/svg/Bing.svg" onclick="switchEngine()">
+                <img alt="" class="logo" id="Google" src="/static/svg/Google.svg" onclick="switchEngine()">
+                <img alt="" class="logo" id="Duckduckgo" src="/static/svg/Duckduckgo.svg" onclick="switchEngine()">
+            </div>
+            <div class="searchbar">
+                <svg id="mg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 25"><path fill="#242424" d="M11.25 5.75a.75.75 0 0 0 0 1.5A4.75 4.75 0 0 1 16 12a.75.75 0 0 0 1.5 0a6.25 6.25 0 0 0-6.251-6.25"/><path fill="#242424" fill-rule="evenodd" d="M2 11.999C2 6.89 6.142 2.75 11.25 2.75s9.25 4.14 9.25 9.248a9.2 9.2 0 0 1-2.202 5.99l3.481 3.48a.75.75 0 1 1-1.06 1.061l-3.482-3.481a9.2 9.2 0 0 1-5.987 2.198c-5.108 0-9.25-4.14-9.25-9.248m9.25-7.748a7.749 7.749 0 1 0 0 15.496a7.749 7.749 0 1 0 0-15.496" clip-rule="evenodd"/></svg>
+                <!-- 当鼠标点击搜索框时，灰色提示文字‘Search Google or type a URL’会隐藏-->
+                <!-- 当闲置状态时，提示文字恢复  -->
+                <input title=".." type="text" id="search" autocomplete="off" value="Search the web" onfocus="if(value=='Search the web')value=''" onblur="if(!value)value='Search the web'" name="keyword" >
+                <svg id="mcp" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path fill="#242424" fill-rule="evenodd" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10m.47-13.53a.75.75 0 0 1 1.06 0l3 3a.75.75 0 0 1 0 1.06l-3 3a.75.75 0 1 1-1.06-1.06l1.72-1.72H8a.75.75 0 0 1 0-1.5h6.19l-1.72-1.72a.75.75 0 0 1 0-1.06" clip-rule="evenodd"/></svg>
+            </div>
+        </div>
+    </div>
+
+    {% include '_tagSelector.html' %}
+    <script type="text/javascript" src="/static/js/index/engineStatus.js"></script>
+    <script type="text/javascript" src="/static/js/index/search.js"></script>
+    <script type="text/javascript" src="/static/js/index/switchEngine.js"></script>
+</body>
+</html>
+

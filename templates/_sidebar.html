@@ -1,0 +1,62 @@
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/_sidebar.css') }}">
+</head>
+
+<div class="sidebar">
+    <div class="options">
+        <div class="{{ 'option-activity' if sidebar_option == 'index' else 'option' }} index"
+            onclick="window.location.href = '/'">
+            <div class="prefix">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                    <path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m20 20l-4.05-4.05m0 0a7 7 0 1 0-9.9-9.9a7 7 0 0 0 9.9 9.9" />
+                </svg>
+                <p>搜索引擎</p>
+            </div>
+        </div>
+        <div class="{{ 'option-activity' if sidebar_option == 'navigation' else 'option' }} navigation"
+            onclick="window.location.href = '/navigation'">
+            <div class="prefix">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                    <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        color="#ffffff">
+                        <path
+                            d="M20.998 13q.002-.705.002-1.5c0-4.478 0-6.718-1.391-8.109S15.979 2 11.5 2C7.022 2 4.782 2 3.391 3.391S2 7.021 2 11.5c0 4.478 0 6.718 1.391 8.109S7.021 21 11.5 21q.795 0 1.5-.002" />
+                        <path
+                            d="m18.5 15l.258.697c.338.914.507 1.371.84 1.704c.334.334.791.503 1.705.841L22 18.5l-.697.258c-.914.338-1.371.507-1.704.84c-.334.334-.503.791-.841 1.705L18.5 22l-.258-.697c-.338-.914-.507-1.371-.84-1.704c-.334-.334-.791-.503-1.705-.841L15 18.5l.697-.258c.914-.338 1.371-.507 1.704-.84c.334-.334.503-.791.841-1.705zM2 9h19M6.5 5.5h.009m3.991 0h.009" />
+                    </g>
+                </svg>
+                <p>外网导航</p>
+            </div>
+        </div>
+        <div class="{{ 'option-activity' if sidebar_option == 'service' else 'option' }} service"
+            onclick="window.location.href = '/service'">
+            <div class="prefix">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
+                    <path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="m10 7l-.516 1.394c-.676 1.828-1.014 2.742-1.681 3.409s-1.581 1.005-3.409 1.681L3 14l1.394.516c1.828.676 2.742 1.015 3.409 1.681s1.005 1.581 1.681 3.409L10 21l.516-1.394c.676-1.828 1.015-2.742 1.681-3.409s1.581-1.005 3.409-1.681L17 14l-1.394-.516c-1.828-.676-2.742-1.014-3.409-1.681s-1.005-1.581-1.681-3.409zm8-4l-.221.597c-.29.784-.435 1.176-.72 1.461c-.286.286-.678.431-1.462.72L15 6l.598.221c.783.29 1.175.435 1.46.72c.286.286.431.678.72 1.462L18 9l.221-.597c.29-.784.435-1.176.72-1.461c.286-.286.678-.431 1.462-.72L21 6l-.598-.221c-.783-.29-1.175-.435-1.46-.72c-.286-.286-.431-.678-.72-1.462z"
+                        color="#ffffff" />
+                </svg>
+                <p>内网服务</p>
+            </div>
+        </div>
+    </div>
+    <div class="filler"></div>
+    <div class="separator"></div>
+    <div class="setting" onclick="showtagSelector()">
+        <div class="tag">
+            <img alt="" class="avatar" src="static/image/avatar.png" />
+            <div class="name">
+                <p>{{ tag_dict.get(cookie_tag, '未知用户') | safe }}</p>
+            </div>
+        </div>
+        <div class="icon" title="切换角色">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 48 48">
+                <path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"
+                    d="M42 19H6M30 7l12 12M6.799 29h36m-36 0l12 12" />
+            </svg>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/static/js/_sidebar/showtagSelector.js"></script>

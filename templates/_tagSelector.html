@@ -1,0 +1,24 @@
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/_tagSelector.css') }}">
+</head>
+
+<div class="fullscreen-overlay" onclick="hideOverlay()">
+    <!-- 遮罩上的提示内容 -->
+    <div class="overlay-message">
+        {% for item in tag_dict %}
+            <div class="{{ 'tag-card-activity' if item == cookie_tag else 'tag-card' }}" id="{{ item }}" onclick="switchTag(this)">
+                <div class="tag">
+                    <img alt="" class="avatar" src="static/image/avatar.png" />
+                    <div class="name">
+                        <p>{{ tag_dict.get(item) }}</p>
+                    </div>
+                </div>
+                <div class="icon" title="切换角色">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 48 48"><path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M42 19H6M30 7l12 12M6.799 29h36m-36 0l12 12"/></svg>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script type="text/javascript" src="/static/js/_tagSelector/switchTag.js"></script>
