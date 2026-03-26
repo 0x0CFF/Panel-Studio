@@ -32,7 +32,7 @@
                     {% for item in navigationData %}
                         {% set item_tags = item.tags|tojson|safe %}
                         {% if cookie_tag in item_tags and item.group == group%}
-                            <div class="card{% for tag in item.tags %} {{ tag }}{% endfor %}" onclick="window.open('{{ item.url }}', '_self'); return false;">
+                            <div class="card{% for tag in item.tags %} {{ tag }}{% endfor %}" onclick="window.open('{{ item.url }}'); return false;">
                                 <img alt="" class="icon" src="static/image/{{ item.icon }}" />
                                 <h3 class="title">{{ item.name }}</h3>
                                 <p class="subtitle">{{ item.description }}</p>
